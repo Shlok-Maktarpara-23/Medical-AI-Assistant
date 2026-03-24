@@ -23,7 +23,7 @@ An AI-powered medical assistant that allows users to upload medical documents (P
 * LangChain
 * Pinecone (Vector Database)
 * Groq (LLM - LLaMA3)
-* Google Generative AI Embeddings
+* Hugging Face Embedding Model 
 
 ### Frontend
 
