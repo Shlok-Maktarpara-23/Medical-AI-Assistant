@@ -12,3 +12,10 @@ def upload_pdfs_api(files):
 
 def ask_question(question):
     return requests.post(f"{API_URL}/ask/",data={"question":question})
+
+def get_uploaded_files():
+    return requests.get(f"{API_URL}/uploaded_files/")
+
+def delete_file(filename: str):
+    return requests.delete(f"{API_URL}/delete_file/{filename}")
+

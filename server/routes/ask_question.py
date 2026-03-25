@@ -6,7 +6,7 @@ from modules.llm import get_llm_chain
 from modules.query_handlers import query_chain
 from langchain_core.documents import Document
 from langchain_core.retrievers import BaseRetriever
-from sentence_transformers import SentenceTransformer  # ✅ replaced GoogleGenerativeAIEmbeddings
+from sentence_transformers import SentenceTransformer  
 from pinecone import Pinecone
 from pydantic import Field
 from typing import List, Optional
@@ -30,7 +30,7 @@ async def ask_question(question: str = Form(...)): # Form() tells FastAPI: This 
 
         # Search in Pinecone
         res = index.query(vector=embedded_query, top_k=6, include_metadata=True)
-        # Finds top 3 similar chunks and Returns metadata (text, source, etc.)
+        # Finds top 6 similar chunks and Returns metadata (text, source, etc.)
 
         # Convert results → Documents(Converts Pinecone output into LangChain format)
         docs = [

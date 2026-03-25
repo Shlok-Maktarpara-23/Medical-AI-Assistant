@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from middlewares.exception_handlers import catch_exception_middleware
 from routes.upload_pdfs import router as upload_router
 from routes.ask_question import router as ask_router
+from routes.uploaded_files import router as files_router
+from routes.delete_file import router as delete_router
 
 
 app = FastAPI(title="Medical Assistant API", description="API for AI Medical Assistant Chatbot")
@@ -26,3 +28,7 @@ app.middleware("http")(catch_exception_middleware)
 app.include_router(upload_router)
 # 2. asking query
 app.include_router(ask_router)
+# 3. list uploaded files
+app.include_router(files_router)
+# 4. delete file
+app.include_router(delete_router)
